@@ -1,37 +1,279 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# 🛒 Job Shop
 
-First, run the development server:
+[![License](https://img.shields.io/badge/License-PolyForm%20Shield-red.svg)](LICENSE)
+[![Author](https://img.shields.io/badge/Author-Artyom%20Pryanishnikov-purple.svg)](https://github.com/FrankFMY)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000.svg?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB.svg?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC.svg?logo=tailwindcss)](https://tailwindcss.com/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Маркетплейс с моковыми данными для прототипирования UX**
+
+[🚀 Быстрый старт](#-быстрый-старт) •
+[📖 API](#-api-документация) •
+[🛠️ Стек](#-технологический-стек) •
+[📄 Лицензия](#-лицензия)
+
+</div>
+
+---
+
+## ✨ Возможности
+
+| Модуль | Описание |
+|--------|----------|
+| 🛍️ **Каталог товаров** | Просмотр, фильтрация и поиск товаров по категориям |
+| 👤 **Авторизация** | Регистрация, вход и управление профилем |
+| 📦 **Заказы** | Создание и управление заказами |
+| 👥 **Продавцы** | Просмотр информации о продавцах |
+| 📊 **Категории** | Навигация по категориям товаров |
+| 🎨 **UI/UX** | Современный интерфейс с поддержкой темной темы |
+| 🔄 **State Management** | Redux Toolkit для управления состоянием |
+| 📱 **Адаптивность** | Полная поддержка мобильных устройств |
+
+---
+
+## 🏗️ Архитектура
+
+```
+job-shop/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── api/                # API Routes
+│   │   │   ├── auth/           # Авторизация
+│   │   │   ├── products/       # Товары
+│   │   │   ├── orders/         # Заказы
+│   │   │   ├── categories/     # Категории
+│   │   │   ├── sellers/        # Продавцы
+│   │   │   └── users/          # Пользователи
+│   │   ├── login/              # Страница входа
+│   │   ├── register/           # Страница регистрации
+│   │   ├── profile/            # Профиль пользователя
+│   │   └── page.tsx            # Главная страница
+│   ├── domain/                 # Доменные модели
+│   │   ├── auth.ts
+│   │   ├── catalog.ts
+│   │   ├── order.ts
+│   │   └── user.ts
+│   ├── features/               # Feature-based структура
+│   │   ├── auth/               # Авторизация
+│   │   ├── catalog/            # Каталог товаров
+│   │   └── app/                # Общие компоненты
+│   ├── lib/                    # Утилиты и библиотеки
+│   │   ├── api/                # API клиент
+│   │   ├── server/             # Server-side утилиты
+│   │   └── state/              # Redux store
+│   └── mocks/                  # Моковые данные
+├── public/                     # Статические файлы
+├── scripts/                    # Вспомогательные скрипты
+│   └── add-copyright.ts        # Скрипт добавления copyright
+└── LICENSE                     # Лицензия
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Быстрый старт
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Требования
 
-## Learn More
+- [Node.js](https://nodejs.org/) >= 18.17.0
+- [npm](https://www.npmjs.com/) или [pnpm](https://pnpm.io/) или [yarn](https://yarnpkg.com/)
+- [Git](https://git-scm.com/)
 
-To learn more about Next.js, take a look at the following resources:
+### Установка
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# 1. Клонировать репозиторий
+git clone https://github.com/FrankFMY/job-shop.git
+cd job-shop
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 2. Установить зависимости
+npm install
 
-## Deploy on Vercel
+# 3. Запустить в режиме разработки
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# job-shop
+---
+
+## 📝 Команды
+
+### Разработка
+
+```bash
+npm run dev          # Запустить dev сервер
+npm run build        # Production сборка
+npm run start        # Запустить production сервер
+```
+
+### Качество кода
+
+```bash
+npm run lint         # Проверка ESLint
+npm run lint:fix     # Автоисправление ESLint
+```
+
+### Утилиты
+
+```bash
+npm run copyright:add  # Добавить copyright headers в файлы
+```
+
+---
+
+## 🛠️ Технологический стек
+
+### Frontend
+
+| Технология | Версия | Назначение |
+|------------|--------|------------|
+| [Next.js](https://nextjs.org/) | 16.0.6 | React фреймворк с App Router |
+| [React](https://react.dev/) | 19.2.0 | UI библиотека |
+| [TypeScript](https://www.typescriptlang.org/) | 5.x | Типизация |
+| [TailwindCSS](https://tailwindcss.com/) | 4.x | CSS фреймворк |
+| [Redux Toolkit](https://redux-toolkit.js.org/) | 2.11.0 | Управление состоянием |
+
+### Инфраструктура
+
+| Технология | Версия | Назначение |
+|------------|--------|------------|
+| [Node.js](https://nodejs.org/) | >=18.17.0 | JavaScript runtime |
+| [TypeScript](https://www.typescriptlang.org/) | 5.x | Компилятор TypeScript |
+| [ESLint](https://eslint.org/) | 9.x | Линтер кода |
+
+---
+
+## 📖 API Документация
+
+### Основные endpoints
+
+#### 🔐 Авторизация
+
+```http
+POST   /api/auth/login          # Вход в систему
+POST   /api/auth/register       # Регистрация
+POST   /api/auth/logout         # Выход
+GET    /api/auth/me             # Текущий пользователь
+```
+
+#### 🛍️ Товары
+
+```http
+GET    /api/products            # Список товаров
+GET    /api/products/:id        # Детали товара
+```
+
+#### 📦 Заказы
+
+```http
+GET    /api/orders              # Список заказов
+GET    /api/orders/:id          # Детали заказа
+POST   /api/orders              # Создать заказ
+```
+
+#### 📂 Категории
+
+```http
+GET    /api/categories          # Список категорий
+```
+
+#### 👥 Продавцы
+
+```http
+GET    /api/sellers             # Список продавцов
+```
+
+#### 👤 Пользователи
+
+```http
+GET    /api/users               # Список пользователей
+GET    /api/users/:id           # Детали пользователя
+```
+
+---
+
+## 🔐 Безопасность
+
+| Функция | Реализация |
+|---------|------------|
+| **Аутентификация** | Сессионная авторизация |
+| **Валидация** | TypeScript типизация на всех уровнях |
+| **CORS** | Настроенные origins |
+| **XSS Protection** | Встроенная защита Next.js |
+
+---
+
+## 📁 Структура проекта
+
+Проект использует **Feature-Sliced Design** подход:
+
+- **`domain/`** — доменные модели и типы
+- **`features/`** — изолированные фичи приложения
+- **`lib/`** — переиспользуемые утилиты и библиотеки
+- **`app/`** — Next.js App Router (страницы и API routes)
+- **`mocks/`** — моковые данные для разработки
+
+---
+
+## 🤝 Вклад в проект
+
+1. Форкните репозиторий
+2. Создайте ветку для фичи (`git checkout -b feature/amazing-feature`)
+3. Закоммитьте изменения (`git commit -m 'Add amazing feature'`)
+4. Запушьте в ветку (`git push origin feature/amazing-feature`)
+5. Откройте Pull Request
+
+---
+
+## 📄 Лицензия
+
+### ⚠️ Важное уведомление
+
+Данное ПО разработано **Артёмом Прянишниковым** в инициативном порядке. НЕ является служебным произведением (ст. 1295 ГК РФ). Права принадлежат автору.
+
+**EN:** Developed independently by **Artyom Pryanishnikov**. NOT a work-for-hire. All rights reserved.
+
+### PolyForm Shield 1.0.0
+
+| Разрешено | Запрещено |
+|-----------|-----------|
+| ✅ Изучение кода | ❌ SaaS/hosted сервисы |
+| ✅ Личные проекты | ❌ Коммерция без лицензии |
+| ✅ Форки для себя | ❌ Удаление копирайтов |
+| ✅ Образование | ❌ Конкурирующие продукты |
+
+```
+Copyright 2025 Artyom Pryanishnikov
+Licensed under PolyForm Shield 1.0.0
+```
+
+### 💼 Коммерческое использование
+
+Требуется отдельное лицензионное соглашение.  
+**Contact:** [Pryanishnikovartem@gmail.com](mailto:Pryanishnikovartem@gmail.com)
+
+---
+
+## 👤 Автор
+
+<div align="center">
+
+**Artyom Pryanishnikov** (Артём Прянишников)
+
+[![GitHub](https://img.shields.io/badge/GitHub-FrankFMY-181717.svg?logo=github)](https://github.com/FrankFMY)
+[![Email](https://img.shields.io/badge/Email-Pryanishnikovartem%40gmail.com-EA4335.svg?logo=gmail)](mailto:Pryanishnikovartem@gmail.com)
+
+</div>
+
+---
+
+<div align="center">
+
+⭐ **Если проект был полезен, поставьте звезду!** ⭐
+
+</div>
