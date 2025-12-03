@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.*
+/.cursor/
+/.serena/
+/.mcp/
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
